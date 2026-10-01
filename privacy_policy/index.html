@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Christmas Glitter Effect 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg-dark: #07080f;
+    --bg-gradient: radial-gradient(circle at 50% 0%, #1c0a12 0%, #0d0f1a 45%, #05060b 100%);
+    --card-bg: rgba(18, 20, 32, 0.72);
+    --card-surface: rgba(26, 29, 46, 0.85);
+    --border-gold: rgba(243, 206, 114, 0.22);
+    --border-gold-hover: rgba(243, 206, 114, 0.6);
+    --border-red: rgba(210, 57, 60, 0.25);
+    --accent-red: #d2393c;
+    --accent-crimson: #e53935;
+    --gold: #f3ce72;
+    --gold-light: #ffebad;
+    --emerald: #3ddc84;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #8892b0;
+    --glass-blur: blur(14px);
+  }
+
+  body {
+    background: var(--bg-dark);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Falling Snow Canvas */
+  #snowCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Snow Control Floating Toggle */
+  .snow-control {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    background: rgba(18, 20, 32, 0.85);
+    border: 1px solid var(--border-gold);
+    backdrop-filter: var(--glass-blur);
+    color: var(--gold);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .snow-control:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    color: #fff;
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 24px 90px;
+  }
+
+  /* Hero Banner */
+  .hero-card {
+    text-align: center;
+    background: radial-gradient(ellipse at 50% -20%, rgba(210, 57, 60, 0.28) 0%, rgba(243, 206, 114, 0.08) 50%, transparent 80%),
+                var(--card-bg);
+    border: 1px solid var(--border-gold);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 24px;
+    padding: 54px 32px 42px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .festive-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(243, 206, 114, 0.12);
+    border: 1px solid rgba(243, 206, 114, 0.35);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+
+  .festive-sparkle {
+    display: inline-block;
+    animation: sparkleSpin 4s linear infinite;
+  }
+
+  @keyframes sparkleSpin {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.8; }
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(32px, 5.5vw, 50px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, #f3ce72 0%, #ff8a65 50%, #f3ce72 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    max-width: 620px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  .meta-chips {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .chip strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* Bento Highlights */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .bento-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 18px;
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .bento-item:hover {
+    border-color: var(--border-gold-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+
+  .bento-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  .bento-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+
+  .bento-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Modern Glass Policy Cards */
+  .policy-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 20px;
+    padding: 34px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: border-color 0.25s ease;
+  }
+
+  .policy-card:hover {
+    border-color: rgba(243, 206, 114, 0.35);
+  }
+
+  .card-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .card-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(210, 57, 60, 0.25) 0%, rgba(243, 206, 114, 0.15) 100%);
+    border: 1px solid var(--border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+
+  .policy-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .policy-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-card ul {
+    list-style: none;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .policy-card li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .policy-card li::before {
+    content: "✦";
+    color: var(--gold);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  /* Safety Pill */
+  .security-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(61, 220, 132, 0.12);
+    border: 1px solid rgba(61, 220, 132, 0.35);
+    color: var(--emerald);
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  /* Highlight Banner */
+  .highlight-banner {
+    background: linear-gradient(135deg, rgba(210, 57, 60, 0.15) 0%, rgba(18, 20, 32, 0.7) 100%);
+    border-left: 4px solid var(--accent-red);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .highlight-banner strong {
+    color: var(--gold);
+  }
+
+  /* Permissions Custom Table */
+  .permissions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .perm-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 14px 18px;
+    gap: 16px;
+    transition: background 0.2s ease;
+  }
+  .perm-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .perm-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .perm-icon {
+    font-size: 20px;
+  }
+  .perm-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .perm-role {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .perm-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(243, 206, 114, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(243, 206, 114, 0.25);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* SDK Partner Cards */
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .partner-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .partner-card h4 {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+  }
+  .partner-card p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .partner-card a {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .partner-card a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+  }
+
+  /* Festive Contact Callout */
+  .contact-section {
+    text-align: center;
+    background: radial-gradient(circle at 50% 120%, rgba(210, 57, 60, 0.25) 0%, rgba(18, 20, 32, 0.8) 70%),
+                var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 24px;
+    padding: 44px 30px;
+    margin-top: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .contact-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .contact-section p {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    margin-bottom: 24px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--accent-red) 0%, #881816 100%);
+    border: 1px solid var(--border-gold);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(210, 57, 60, 0.4);
+    transition: all 0.25s ease;
+  }
+
+  .contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 26px rgba(210, 57, 60, 0.6);
+    color: #ffffff;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper { padding: 30px 16px 80px; }
+    .hero-card { padding: 40px 20px 32px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .partner-grid { grid-template-columns: 1fr; }
+    .policy-card { padding: 24px 20px; }
+    .perm-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Animated Snowflakes Canvas -->
+<canvas id="snowCanvas"></canvas>
+
+<!-- Snow Control Floating Toggle -->
+<button class="snow-control" id="snowToggleBtn" onclick="toggleSnow()">
+  <span id="snowStatusIcon">❄️</span> <span id="snowBtnText">Snow: On</span>
+</button>
+
+<div class="content-wrapper">
+
+  <!-- Hero Header -->
+  <header class="hero-card">
+    <div class="festive-tag">
+      <span class="festive-sparkle">✨</span> Christmas 2026 Privacy Standard
+    </div>
+    <h1 class="hero-title">
+      Your Memories.<br>
+      <span>Your Sparkle.</span><br>
+      Always Private.
+    </h1>
+    <p class="hero-subtitle">
+      Celebrate the holidays with complete peace of mind. We make sure all your festive photo creations stay 100% personal, on-device, and protected.
+    </p>
+
+    <div class="meta-chips">
+      <div class="chip">App: <strong>Christmas Glitter Effect 2026</strong></div>
+      <div class="chip">Effective: <strong>October 1, 2026</strong></div>
+    </div>
+  </header>
+
+  <!-- Bento Feature Highlights -->
+  <section class="bento-grid">
+    <div class="bento-item">
+      <span class="bento-icon">🛡️</span>
+      <h3 class="bento-title">100% On-Device</h3>
+      <p class="bento-desc">All glitter blends, stickers, snow filters, and text rendering are processed locally on your phone.</p>
+    </div>
+    <div class="bento-item">
+      <span class="bento-icon">🔒</span>
+      <h3 class="bento-title">Zero Cloud Harvesting</h3>
+      <p class="bento-desc">We never upload, inspect, or sell your private photos or gallery images to any server.</p>
+    </div>
+    <div class="bento-item">
+      <span class="bento-icon">📜</span>
+      <h3 class="bento-title">Full Google Compliance</h3>
+      <p class="bento-desc">Strictly adheres to Google Play Data Safety policies, COPPA, and GDPR/CCPA standards.</p>
+    </div>
+  </section>
+
+  <!-- Card 1: Core Privacy Guarantee -->
+  <article class="policy-card">
+    <div class="card-header-bar">
+      <div class="card-badge">01</div>
+      <h2 class="card-title">Photo Processing &amp; Media Guarantee</h2>
+    </div>
+    <p>
+      At <strong>Christmas Glitter Effect 2026</strong>, we respect the emotional value of your holiday memories. Our application is engineered to perform all creative operations entirely within your local device sandbox:
+    </p>
+    <ul>
+      <li><strong>Local Transformations:</strong> Cropping, glitter blending, adding holiday stickers, and applying custom frames run completely on your Android device hardware.</li>
+      <li><strong>No Remote Photo Uploads:</strong> We do not operate cloud databases that receive or store your pictures. Your images never leave your smartphone without your explicit action.</li>
+      <li><strong>User-Initiated Sharing:</strong> When you share an exported picture to social media (WhatsApp, Instagram, Facebook), your device's native Android sharing system performs the transfer directly.</li>
+    </ul>
+    <div class="security-pill">
+      ✓ Verified Local Processing — Zero external photo storage
+    </div>
+  </article>
+
+  <!-- Card 2: Permissions -->
+  <article class="policy-card">
+    <div class="card-header-bar">
+      <div class="card-badge">02</div>
+      <h2 class="card-title">Permissions Requested &amp; Usage</h2>
+    </div>
+    <p>
+      We request only the minimum runtime permissions essential to provide photo editing capabilities:
+    </p>
+
+    <div class="permissions-grid">
+      <div class="perm-item">
+        <div class="perm-left">
+          <span class="perm-icon">📷</span>
+          <div>
+            <div class="perm-name">CAMERA</div>
+            <div class="perm-role">Take live photos inside the app to apply Christmas effects</div>
+          </div>
+        </div>
+        <span class="perm-tag">Optional</span>
+      </div>
+
+      <div class="perm-item">
+        <div class="perm-left">
+          <span class="perm-icon">🖼️</span>
+          <div>
+            <div class="perm-name">READ_MEDIA_IMAGES / STORAGE</div>
+            <div class="perm-role">Browse and pick images from your device gallery to edit</div>
+          </div>
+        </div>
+        <span class="perm-tag">Required for Editor</span>
+      </div>
+
+      <div class="perm-item">
+        <div class="perm-left">
+          <span class="perm-icon">💾</span>
+          <div>
+            <div class="perm-name">WRITE_EXTERNAL_STORAGE</div>
+            <div class="perm-role">Save your finished edited photos into your device gallery (Android 9 and below)</div>
+          </div>
+        </div>
+        <span class="perm-tag">Saving Pictures</span>
+      </div>
+
+      <div class="perm-item">
+        <div class="perm-left">
+          <span class="perm-icon">🌐</span>
+          <div>
+            <div class="perm-name">INTERNET &amp; ACCESS_NETWORK_STATE</div>
+            <div class="perm-role">Download dynamic stickers/frames and display advertisements</div>
+          </div>
+        </div>
+        <span class="perm-tag">Connectivity</span>
+      </div>
+
+      <div class="perm-item">
+        <div class="perm-left">
+          <span class="perm-icon">🔔</span>
+          <div>
+            <div class="perm-name">POST_NOTIFICATIONS</div>
+            <div class="perm-role">Receive seasonal festive greetings and new frame announcements</div>
+          </div>
+        </div>
+        <span class="perm-tag">Optional</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 3: Information We Do NOT Collect -->
+  <article class="policy-card">
+    <div class="card-header-bar">
+      <div class="card-badge">03</div>
+      <h2 class="card-title">Information We Do NOT Collect</h2>
+    </div>
+    <p>
+      Because we do not require account registration or sign-in, we never collect:
+    </p>
+    <ul>
+      <li>Your personal name, physical address, or phone number</li>
+      <li>Biometric facial geometry or facial recognition data</li>
+      <li>Your personal contacts, address book, or text messages</li>
+      <li>Precise real-time GPS location</li>
+      <li>Payment card or financial account numbers (the app is completely free)</li>
+    </ul>
+  </article>
+
+  <!-- Card 4: Advertising & Diagnostics -->
+  <article class="policy-card">
+    <div class="card-header-bar">
+      <div class="card-badge">04</div>
+      <h2 class="card-title">Advertising, Analytics &amp; Partners</h2>
+    </div>
+    <p>
+      To offer <strong>Christmas Glitter Effect 2026</strong> for free without subscriptions, we integrate trusted third-party advertising and analytics services. These partners may collect non-sensitive diagnostic and advertising identifiers:
+    </p>
+
+    <div class="highlight-banner">
+      <strong>Your Privacy Choice:</strong> You can reset or delete your Android Advertising ID at any time in your phone's <em>Settings &gt; Google &gt; Ads</em>.
+    </div>
+
+    <div class="partner-grid">
+      <div class="partner-card">
+        <div>
+          <h4>Google AdMob</h4>
+          <p>Serves banner, interstitial, and native festive ads with fraud protection.</p>
+        </div>
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">AdMob Privacy Policy ↗</a>
+      </div>
+
+      <div class="partner-card">
+        <div>
+          <h4>Meta Audience Network</h4>
+          <p>Displays relevant contextual ads supporting free application features.</p>
+        </div>
+        <a href="https://www.facebook.com/about/privacy/" target="_blank" rel="noopener">Meta Privacy Policy ↗</a>
+      </div>
+
+      <div class="partner-card">
+        <div>
+          <h4>Firebase Analytics &amp; Crashlytics</h4>
+          <p>Provides anonymous crash diagnostics and performance reports to squash bugs.</p>
+        </div>
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy ↗</a>
+      </div>
+
+      <div class="partner-card">
+        <div>
+          <h4>Google Play Services</h4>
+          <p>Powers essential platform components, in-app reviews, and system updates.</p>
+        </div>
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 5: Children's Safety & Legal Rights -->
+  <article class="policy-card">
+    <div class="card-header-bar">
+      <div class="card-badge">05</div>
+      <h2 class="card-title">Children's Privacy &amp; User Rights</h2>
+    </div>
+    <p>
+      <strong>Children's Privacy (COPPA):</strong> Our application is designed for general audiences. We do not knowingly solicit or collect personal information from children under 13 (or under 16 in the EEA). If you believe a child has provided us with personal information, please notify us and we will delete it promptly.
+    </p>
+    <p>
+      <strong>Your Rights (GDPR &amp; CCPA):</strong> You have the right to revoke any granted permission (Camera, Storage, Notifications) anytime in Android App Settings. You also have the right to request information about our data practices or request third-party removal assistance by contacting us.
+    </p>
+  </article>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h3>Questions or Holiday Inquiries?</h3>
+    <p>We are dedicated to providing you with a safe and sparkling photo editing experience.</p>
+    <a href="mailto:strings.technologies1@gmail.com" class="contact-btn">
+      ✉️ strings.technologies1@gmail.com
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Christmas Glitter Effect 2026</p>
+    <p style="margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.4);">
+      Privacy Policy
+    </p>
+  </footer>
+
+</div>
+
+<!-- Interactive Snowflake Animation Script -->
+<script>
+  const canvas = document.getElementById('snowCanvas');
+  const ctx = canvas.getContext('2d');
+  let animationFrameId;
+  let snowActive = true;
+  let width, height;
+  let snowflakes = [];
+
+  function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  class Snowflake {
+    constructor() {
+      this.reset(true);
+    }
+    reset(initial = false) {
+      this.x = Math.random() * width;
+      this.y = initial ? Math.random() * height : -10;
+      this.radius = Math.random() * 2.8 + 0.8;
+      this.speed = Math.random() * 1.2 + 0.5;
+      this.wind = Math.random() * 0.6 - 0.3;
+      this.opacity = Math.random() * 0.7 + 0.25;
+      this.swing = Math.random() * 2;
+      this.swingSpeed = Math.random() * 0.02 + 0.01;
+    }
+    update() {
+      this.y += this.speed;
+      this.swing += this.swingSpeed;
+      this.x += Math.sin(this.swing) * 0.5 + this.wind;
+
+      if (this.y > height + 10 || this.x < -10 || this.x > width + 10) {
+        this.reset();
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(240, 246, 255, ${this.opacity})`;
+      ctx.shadowBlur = this.radius > 2 ? 6 : 0;
+      ctx.shadowColor = 'rgba(243, 206, 114, 0.4)';
+      ctx.fill();
+    }
+  }
+
+  // Adjust count based on screen size for top performance
+  const flakeCount = Math.min(Math.floor(window.innerWidth / 12), 75);
+  for (let i = 0; i < flakeCount; i++) {
+    snowflakes.push(new Snowflake());
+  }
+
+  function animateSnow() {
+    if (!snowActive) return;
+    ctx.clearRect(0, 0, width, height);
+    for (let flake of snowflakes) {
+      flake.update();
+      flake.draw();
+    }
+    animationFrameId = requestAnimationFrame(animateSnow);
+  }
+  animateSnow();
+
+  // Snow on/off toggle button
+  function toggleSnow() {
+    snowActive = !snowActive;
+    const btnText = document.getElementById('snowBtnText');
+    const icon = document.getElementById('snowStatusIcon');
+    if (snowActive) {
+      btnText.innerText = "Snow: On";
+      icon.innerText = "❄️";
+      animateSnow();
+    } else {
+      btnText.innerText = "Snow: Off";
+      icon.innerText = "⏹️";
+      cancelAnimationFrame(animationFrameId);
+      ctx.clearRect(0, 0, width, height);
+    }
+  }
+</script>
+
+</body>
+</html>
